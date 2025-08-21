@@ -29,6 +29,7 @@
     }
   },
   "imports": {
+    "@deno/vite-plugin": "npm:@deno/vite-plugin@^1.0.5",
     "@harbor/kv": "./pkgs/kv/mod.ts",
     "@sveltejs/adapter-static": "npm:@sveltejs/adapter-static@^3.0.9",
     "@sveltejs/kit": "npm:@sveltejs/kit@^2.36.1",
@@ -36,8 +37,10 @@
     "@tauri-apps/api": "npm:@tauri-apps/api@^2.8.0",
     "@tauri-apps/cli": "npm:@tauri-apps/cli@^2.8.1",
     "@tauri-apps/plugin-opener": "npm:@tauri-apps/plugin-opener@^2.5.0",
+    "smol-toml": "npm:smol-toml@^1.4.2",
     "svelte": "npm:svelte@^5.38.2",
     "svelte-check": "npm:svelte-check@^4.3.1",
+    "svelte-monaco": "npm:svelte-monaco@^1.0.4",
     "typescript": "npm:typescript@^5.9.2",
     "vite": "npm:vite@^7.1.3",
     "zod": "npm:zod@^4.0.17"

@@ -1,5 +1,5 @@
-import { invoke } from "npm:@tauri-apps/api@^2.8.0/core";
-import { type ZodSchema } from "npm:zod@^4.0.17";
+import { invoke } from "@tauri-apps/api/core";
+import { type ZodSchema } from "zod";
 
 export interface KvItem<T> {
   value: T;
