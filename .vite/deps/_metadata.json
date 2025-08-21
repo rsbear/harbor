@@ -1,0 +1,178 @@
+{
+  "hash": "2bf465d3",
+  "configHash": "3db94259",
+  "lockfileHash": "e3b0c442",
+  "browserHash": "3eb9b1f9",
+  "optimized": {
+    "svelte": {
+      "src": "../../node_modules/.deno/svelte@5.38.2/node_modules/svelte/src/index-client.js",
+      "file": "svelte.js",
+      "fileHash": "499dbd32",
+      "needsInterop": false
+    },
+    "svelte/animate": {
+      "src": "../../node_modules/.deno/svelte@5.38.2/node_modules/svelte/src/animate/index.js",
+      "file": "svelte_animate.js",
+      "fileHash": "e863ed64",
+      "needsInterop": false
+    },
+    "svelte/attachments": {
+      "src": "../../node_modules/.deno/svelte@5.38.2/node_modules/svelte/src/attachments/index.js",
+      "file": "svelte_attachments.js",
+      "fileHash": "d06c0cbe",
+      "needsInterop": false
+    },
+    "svelte/easing": {
+      "src": "../../node_modules/.deno/svelte@5.38.2/node_modules/svelte/src/easing/index.js",
+      "file": "svelte_easing.js",
+      "fileHash": "3d589452",
+      "needsInterop": false
+    },
+    "svelte/internal": {
+      "src": "../../node_modules/.deno/svelte@5.38.2/node_modules/svelte/src/internal/index.js",
+      "file": "svelte_internal.js",
+      "fileHash": "8035e532",
+      "needsInterop": true
+    },
+    "svelte/internal/client": {
+      "src": "../../node_modules/.deno/svelte@5.38.2/node_modules/svelte/src/internal/client/index.js",
+      "file": "svelte_internal_client.js",
+      "fileHash": "d05e2488",
+      "needsInterop": false
+    },
+    "svelte/internal/disclose-version": {
+      "src": "../../node_modules/.deno/svelte@5.38.2/node_modules/svelte/src/internal/disclose-version.js",
+      "file": "svelte_internal_disclose-version.js",
+      "fileHash": "5d29d903",
+      "needsInterop": false
+    },
+    "svelte/internal/flags/async": {
+      "src": "../../node_modules/.deno/svelte@5.38.2/node_modules/svelte/src/internal/flags/async.js",
+      "file": "svelte_internal_flags_async.js",
+      "fileHash": "f01ab04b",
+      "needsInterop": false
+    },
+    "svelte/internal/flags/legacy": {
+      "src": "../../node_modules/.deno/svelte@5.38.2/node_modules/svelte/src/internal/flags/legacy.js",
+      "file": "svelte_internal_flags_legacy.js",
+      "fileHash": "2aa85c37",
+      "needsInterop": false
+    },
+    "svelte/internal/flags/tracing": {
+      "src": "../../node_modules/.deno/svelte@5.38.2/node_modules/svelte/src/internal/flags/tracing.js",
+      "file": "svelte_internal_flags_tracing.js",
+      "fileHash": "1eb2025d",
+      "needsInterop": false
+    },
+    "svelte/legacy": {
+      "src": "../../node_modules/.deno/svelte@5.38.2/node_modules/svelte/src/legacy/legacy-client.js",
+      "file": "svelte_legacy.js",
+      "fileHash": "80ee0cfb",
+      "needsInterop": false
+    },
+    "svelte/motion": {
+      "src": "../../node_modules/.deno/svelte@5.38.2/node_modules/svelte/src/motion/index.js",
+      "file": "svelte_motion.js",
+      "fileHash": "e4e30507",
+      "needsInterop": false
+    },
+    "svelte/reactivity": {
+      "src": "../../node_modules/.deno/svelte@5.38.2/node_modules/svelte/src/reactivity/index-client.js",
+      "file": "svelte_reactivity.js",
+      "fileHash": "bf1c9256",
+      "needsInterop": false
+    },
+    "svelte/reactivity/window": {
+      "src": "../../node_modules/.deno/svelte@5.38.2/node_modules/svelte/src/reactivity/window/index.js",
+      "file": "svelte_reactivity_window.js",
+      "fileHash": "f3517af7",
+      "needsInterop": false
+    },
+    "svelte/store": {
+      "src": "../../node_modules/.deno/svelte@5.38.2/node_modules/svelte/src/store/index-client.js",
+      "file": "svelte_store.js",
+      "fileHash": "d588019a",
+      "needsInterop": false
+    },
+    "svelte/transition": {
+      "src": "../../node_modules/.deno/svelte@5.38.2/node_modules/svelte/src/transition/index.js",
+      "file": "svelte_transition.js",
+      "fileHash": "3819c2b4",
+      "needsInterop": false
+    },
+    "svelte/events": {
+      "src": "../../node_modules/.deno/svelte@5.38.2/node_modules/svelte/src/events/index.js",
+      "file": "svelte_events.js",
+      "fileHash": "ccdaacd3",
+      "needsInterop": false
+    },
+    "svelte > clsx": {
+      "src": "../../node_modules/.deno/clsx@2.1.1/node_modules/clsx/dist/clsx.mjs",
+      "file": "svelte___clsx.js",
+      "fileHash": "21171e7f",
+      "needsInterop": false
+    },
+    "@tauri-apps/api/core": {
+      "src": "../../node_modules/.deno/@tauri-apps+api@2.8.0/node_modules/@tauri-apps/api/core.js",
+      "file": "@tauri-apps_api_core.js",
+      "fileHash": "70697410",
+      "needsInterop": false
+    },
+    "smol-toml": {
+      "src": "../../node_modules/.deno/smol-toml@1.4.2/node_modules/smol-toml/dist/index.js",
+      "file": "smol-toml.js",
+      "fileHash": "790b765e",
+      "needsInterop": false
+    },
+    "svelte-monaco": {
+      "src": "../../node_modules/.deno/svelte-monaco@1.0.4/node_modules/svelte-monaco/dist/index.js",
+      "file": "svelte-monaco.js",
+      "fileHash": "eb7a9aa1",
+      "needsInterop": false
+    },
+    "zod": {
+      "src": "../../node_modules/.deno/zod@4.0.17/node_modules/zod/index.js",
+      "file": "zod.js",
+      "fileHash": "a0e92711",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-RNGEEJTX": {
+      "file": "chunk-RNGEEJTX.js"
+    },
+    "chunk-6LXAAOFS": {
+      "file": "chunk-6LXAAOFS.js"
+    },
+    "chunk-6MRBPO2G": {
+      "file": "chunk-6MRBPO2G.js"
+    },
+    "chunk-THBQD6SG": {
+      "file": "chunk-THBQD6SG.js"
+    },
+    "chunk-OWFE4KLI": {
+      "file": "chunk-OWFE4KLI.js"
+    },
+    "chunk-HMS34BMV": {
+      "file": "chunk-HMS34BMV.js"
+    },
+    "chunk-UQNPWPTW": {
+      "file": "chunk-UQNPWPTW.js"
+    },
+    "chunk-J4EISQ4T": {
+      "file": "chunk-J4EISQ4T.js"
+    },
+    "chunk-H7RC6OTN": {
+      "file": "chunk-H7RC6OTN.js"
+    },
+    "chunk-KZCZDOWH": {
+      "file": "chunk-KZCZDOWH.js"
+    },
+    "chunk-TGDJEAM5": {
+      "file": "chunk-TGDJEAM5.js"
+    },
+    "chunk-PZ5AY32C": {
+      "file": "chunk-PZ5AY32C.js"
+    }
+  }
+}
