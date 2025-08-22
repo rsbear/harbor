@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "compile": "deno compile --allow-env --allow-net --allow-read --allow-write --allow-run=deno --allow-ffi --target aarch64-apple-darwin -o bundler-aarch64-apple-darwin bundler.ts"
+  },
+  "imports": {
+    "@std/assert": "jsr:@std/assert@1"
+  }
+}

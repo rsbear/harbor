@@ -77,7 +77,7 @@ export function okvTable<T>(baseKey: string, schema: ZodSchema<T>): KvTable<T> {
      */
     async list(): Promise<KvMsg<Array<KvItem<T>>>> {
       try {
-        const items = await invoke<KvItem<any>[]>("kv_list", {
+        const items = await invoke<KvItem<T>[]>("kv_list", {
           prefix: [baseKey],
         });
 

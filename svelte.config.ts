@@ -5,10 +5,15 @@
 import adapter from "@sveltejs/adapter-static";
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 
+// https://svelte.dev/docs/kit/configuration#alias
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   preprocess: vitePreprocess(),
   kit: {
+    alias: {
+      "@harbor/api": "pkgs/api/mod.ts",
+      "@harbor/kv": "pkgs/kv/mod.ts",
+    },
     adapter: adapter({
       fallback: "index.html",
     }),

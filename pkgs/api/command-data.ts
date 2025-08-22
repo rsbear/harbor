@@ -1,6 +1,6 @@
 import { Store } from "./store.ts";
-import { okvTable, type KvItem } from "jsr:@harbor/kv@^0.1.0";
-import { type z } from "npm:zod@^4.0.17";
+import { okvTable, type KvItem } from "@harbor/kv";
+import { type z } from "zod";
 
 export type Msg<T> =
   | { _tag: "None"; result: null }

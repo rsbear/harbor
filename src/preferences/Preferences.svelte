@@ -1,29 +1,20 @@
 <script lang="ts">
+    import { onMount } from "svelte";
     import Monaco from "svelte-monaco";
     import z from "zod";
-    import { onMount } from "svelte";
-    import MonacoContainer from "$lib/MonacoContainer.svelte";
     import * as TOML from "smol-toml";
-    import { okvTable } from "@harbor/kv";
-
-    const prefsSchema = z.object({
-        harbor: z.object({
-            harbor_theme: z.string(),
-            monaco_theme: z.string().optional(),
-            markdown_theme: z.string().optional(),
-        }),
-        apps: z.array(z.object({ alias: z.string(), github_url: z.url() })),
-    });
+    import { invoke } from "@tauri-apps/api/core";
+    import MonacoContainer from "$lib/MonacoContainer.svelte";
+    import { prefsKv, type PrefsKvSchema } from "./preferences-kv.ts";
+    import { harbor } from "@harbor/api";
 
     let err = $state("");
+    let bundlingStatus: Record<string, string> = {}; // alias -> status text
 
-    const kv = okvTable("Preferences", prefsSchema);
-
-    // this is fully reactive! setting value to another string will change the editor accordingly
-    let value = "const x = 5";
+    let value = $state("const x = 5");
 
     onMount(async () => {
-        const saved = await kv.get(["0"]);
+        const saved = await prefsKv.get(["0"]);
         if (saved._tag === "Ok") {
             value = TOML.stringify(saved.result.value);
         }
@@ -51,14 +42,37 @@
     });
 
     const savePrefs = async () => {
-        const tomlToJson = TOML.parse(value) as z.infer<typeof prefsSchema>;
-        const res = await kv.set(["0"], tomlToJson);
-        if (res._tag === "Error") {
-            err = res.result;
-            console.error("Error saving preferences:", res);
-            return;
+        try {
+            const tomlToJson = TOML.parse(value) as PrefsKvSchema;
+            const res = await prefsKv.set(["0"], tomlToJson);
+            if (res._tag === "Error") {
+                err = res.result;
+                console.error("Error saving preferences:", res);
+                return;
+            }
+
+            // After saving, start bundling apps sequentially
+            for (const app of tomlToJson.apps) {
+                bundlingStatus[app.alias] = `Bundling ${app.alias}...`;
+                try {
+                    const bundlePath = await invoke<string>(
+                        "install_shipment",
+                        {
+                            githubUrl: app.github_url,
+                            alias: app.alias,
+                        },
+                    );
+                    bundlingStatus[app.alias] = `✅ Bundled at ${bundlePath}`;
+                    await harbor.input.save(app.alias);
+                } catch (e) {
+                    console.error("Error bundling app:", app.alias, e);
+                    bundlingStatus[app.alias] = `❌ Error bundling`;
+                }
+            }
+        } catch (e) {
+            console.error("Unexpected error saving preferences:", e);
+            err = String(e);
         }
-        console.log("saved res", res);
     };
 
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -74,9 +88,10 @@
 <div>
     <h1>preferences</h1>
 
-    <div class="">
+    <div>
         <button type="button" onclick={savePrefs}> Save Preferences </button>
     </div>
+
     <MonacoContainer>
         <Monaco
             options={{
@@ -87,4 +102,22 @@
             bind:value
         />
     </MonacoContainer>
+
+    <!-- Show bundling status -->
+    <div class="bundling-status">
+        {#each Object.entries(bundlingStatus) as [alias, status]}
+            <p><strong>{alias}:</strong> {status}</p>
+        {/each}
+    </div>
 </div>
+
+<style>
+    .bundling-status {
+        margin-top: 1rem;
+        font-family: monospace;
+        text-align: left;
+    }
+    .bundling-status p {
+        margin: 0.25rem 0;
+    }
+</style>

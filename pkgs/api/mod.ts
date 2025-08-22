@@ -1,6 +1,6 @@
 import { CommandInput } from "./input.ts";
 import { CommandData, type CommandUseResult } from "./command-data.ts";
-import { type z } from "npm:zod@^4.0.17";
+import { type z } from "zod";
 
 export interface HarborAPI {
   input: CommandInput;

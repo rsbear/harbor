@@ -1,5 +1,6 @@
 {
   "nodeModulesDir": "auto",
+  "type": "module",
   "tasks": {
     "dev": "vite dev",
     "build": "vite build",
@@ -9,7 +10,7 @@
     "tauri": "tauri"
   },
   "fmt": {
-    "lineWidth": 200
+    "lineWidth": 120
   },
   "lint": {
     "include": ["src/"],
@@ -34,13 +35,18 @@
     "@sveltejs/adapter-static": "npm:@sveltejs/adapter-static@^3.0.9",
     "@sveltejs/kit": "npm:@sveltejs/kit@^2.36.1",
     "@sveltejs/vite-plugin-svelte": "npm:@sveltejs/vite-plugin-svelte@^6.1.3",
+    "@tailwindcss/vite": "npm:@tailwindcss/vite@^4.1.12",
     "@tauri-apps/api": "npm:@tauri-apps/api@^2.8.0",
     "@tauri-apps/cli": "npm:@tauri-apps/cli@^2.8.1",
+    "@tauri-apps/plugin-fs": "npm:@tauri-apps/plugin-fs@^2.4.2",
     "@tauri-apps/plugin-opener": "npm:@tauri-apps/plugin-opener@^2.5.0",
     "smol-toml": "npm:smol-toml@^1.4.2",
     "svelte": "npm:svelte@^5.38.2",
     "svelte-check": "npm:svelte-check@^4.3.1",
     "svelte-monaco": "npm:svelte-monaco@^1.0.4",
+    "tailwind-merge": "npm:tailwind-merge@^3.3.1",
+    "tailwind-variants": "npm:tailwind-variants@^2.1.0",
+    "tailwindcss": "npm:tailwindcss@^4.1.12",
     "typescript": "npm:typescript@^5.9.2",
     "vite": "npm:vite@^7.1.3",
     "zod": "npm:zod@^4.0.17"
