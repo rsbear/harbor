@@ -6,7 +6,7 @@
     import { invoke } from "@tauri-apps/api/core";
     import MonacoContainer from "$lib/MonacoContainer.svelte";
     import { prefsKv, type PrefsKvSchema } from "./preferences-kv.ts";
-    import { harbor } from "@harbor/api";
+    import { input } from "@harbor/api/input";
 
     let err = $state("");
     let bundlingStatus: Record<string, string> = {}; // alias -> status text
@@ -63,7 +63,7 @@
                         },
                     );
                     bundlingStatus[app.alias] = `✅ Bundled at ${bundlePath}`;
-                    await harbor.input.save(app.alias);
+                    await input.save(app.alias);
                 } catch (e) {
                     console.error("Error bundling app:", app.alias, e);
                     bundlingStatus[app.alias] = `❌ Error bundling`;

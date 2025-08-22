@@ -1,6 +1,7 @@
-import { Store } from "./store.ts";
-import { okvTable, type KvItem } from "@harbor/kv";
+import { Store } from "./../store.ts";
+import { okvTable } from "@harbor/kv";
 import { z } from "zod";
+import { CommandData } from "./command-data.ts"; // Import CommandData
 
 const commandHistorySchema = z.object({
   command: z.string(),
@@ -10,12 +11,17 @@ const commandHistorySchema = z.object({
 const kv = okvTable("CommandHistory", commandHistorySchema);
 
 export class CommandInput {
-  inputValue: Store<string> = new Store<string>("");
+  value: Store<string> = new Store<string>("");
   miniName: Store<string> = new Store<string>("");
   query: Store<string> = new Store<string>("");
+  // Add a public property for CommandData
+  data: CommandData;
 
   constructor() {
-    this.inputValue.subscribe((val) => {
+    // Instantiate CommandData here, passing the miniName getter
+    this.data = new CommandData(() => this.miniName.get());
+
+    this.value.subscribe((val) => {
       const parts = val.trim().split(" ");
       this.miniName.set(parts[0] || "");
       this.query.set(parts.length > 1 ? parts.slice(1).join(" ") : "");
@@ -23,7 +29,7 @@ export class CommandInput {
   }
 
   setValue(v: string): void {
-    this.inputValue.set(v);
+    this.value.set(v);
   }
 
   onSubmit(fn: (value: string) => void): void {
@@ -32,8 +38,8 @@ export class CommandInput {
 
   private _submit?: (value: string) => void;
 
-  submit(): void {
-    if (this._submit) this._submit(this.inputValue.get());
+  submitUsingValue(): void {
+    if (this._submit) this._submit(this.value.get());
   }
 
   history = async () => {
@@ -42,7 +48,7 @@ export class CommandInput {
 
   save = async (inputValue?: string) => {
     const history = await kv.list();
-    const value = inputValue || this.inputValue.get();
+    const value = inputValue || this.value.get();
 
     if (history._tag === "None") {
       return await kv.set([value], {
@@ -59,3 +65,6 @@ export class CommandInput {
     }
   };
 }
+
+// Export a singleton instance
+export const input = new CommandInput();

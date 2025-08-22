@@ -7,6 +7,9 @@ The text input is parsing strategy is to the first word of the input (delimited 
 
 TODO: document and implement the rest of the query string.
 
+# Testing (WIP)
+
+
 ```bash
 .
 ├── deno.json
@@ -14,6 +17,7 @@ TODO: document and implement the rest of the query string.
 ├── design.ts
 ├── embedded-bundler
 │   ├── bundler_test.ts
+│   ├── bundler-aarch64-apple-darwin
 │   ├── bundler.ts
 │   ├── deno.json
 │   ├── deno.lock
@@ -26,25 +30,32 @@ TODO: document and implement the rest of the query string.
 │   │   ├── jsr.json
 │   │   ├── mod.ts
 │   │   └── store.ts
-│   └── kv
-│       ├── deno.json
-│       ├── jsr.json
-│       ├── mod.ts
-│       └── okv.ts
-├── PKGS_DOCS.md
+│   ├── kv
+│   │   ├── deno.json
+│   │   ├── jsr.json
+│   │   ├── mod.ts
+│   │   └── okv.ts
+│   └── PKGS_DOCS.md
 ├── README.md
 ├── scripts
 │   └── build-jsr.ts
 ├── src
+│   ├── app
+│   │   ├── App.svelte
+│   │   ├── app.svelte.test.js
+│   │   └── test
+│   ├── app.css
 │   ├── app.html
-│   ├── kv
-│   │   └── mod.ts
+│   ├── command-history
+│   │   └── command-history.svelte
 │   ├── lib
+│   │   ├── cssjs.ts
 │   │   └── MonacoContainer.svelte
 │   ├── preferences
+│   │   ├── preferences-kv.ts
+│   │   ├── Preferences.md
 │   │   └── Preferences.svelte
 │   └── routes
-│       ├── +layout.svelte
 │       ├── +layout.ts
 │       └── +page.svelte
 ├── src-tauri
@@ -60,6 +71,7 @@ TODO: document and implement the rest of the query string.
 │   │       ├── desktop-schema.json
 │   │       └── macOS-schema.json
 │   ├── src
+│   │   ├── bundler.rs
 │   │   ├── kv
 │   │   │   ├── client.rs
 │   │   │   ├── commands.rs
@@ -68,10 +80,10 @@ TODO: document and implement the rest of the query string.
 │   │   ├── lib.rs
 │   │   └── main.rs
 │   └── tauri.conf.json
-├── svelte.config.js
-├── types
-│   └── harbor-command.d.ts
+├── svelte.config.ts
+├── test-setup.ts
+├── tsconfig.json
 └── vite.config.js
 
-18 directories, 48 files
+19 directories, 54 files
 ```

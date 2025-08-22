@@ -11,7 +11,8 @@ const config = {
   preprocess: vitePreprocess(),
   kit: {
     alias: {
-      "@harbor/api": "pkgs/api/mod.ts",
+      "@harbor/api/input": "pkgs/api/input/mod.ts",
+      "@harbor/api/mode": "pkgs/api/mode/mod.ts",
       "@harbor/kv": "pkgs/kv/mod.ts",
     },
     adapter: adapter({

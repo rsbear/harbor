@@ -1,15 +1,15 @@
 <script lang="ts">
-    import { harbor } from "@harbor/api";
+    import { input } from "@harbor/api/input";
     import { onMount } from "svelte";
 
-    type Records = Awaited<ReturnType<typeof harbor.input.history>>;
+    type Records = Awaited<ReturnType<typeof input.history>>;
     let records = $state<Records>({
         _tag: "None",
         result: null,
     });
 
     onMount(async () => {
-        const data = await harbor.input.history();
+        const data = await input.history();
         records = data;
     });
 </script>

@@ -39,7 +39,7 @@ Example (Svelte):
   <input
     type="text"
     placeholder="Enter a command..."
-    bind:value={$harbor.input.inputValue} <!-- if using Svelte store wrapper -->
+    bind:value={$harbor.input.val} <!-- if using Svelte store wrapper -->
   />
 </form>
 ```
@@ -107,7 +107,7 @@ mini.msg.subscribe((m) => {
 
 ## 4. How It All Connects
 
-- The **host input** updates `harbor.input.inputValue`.
+- The **host input** updates `harbor.input.val`.
 - `harbor.input` automatically derives:
   - `miniName` (alias)
   - `query` (rest of input)

@@ -1,4 +1,4 @@
-import { Store } from "./store.ts";
+import { Store } from "./../store.ts";
 import { okvTable, type KvItem } from "@harbor/kv";
 import { type z } from "zod";
 
